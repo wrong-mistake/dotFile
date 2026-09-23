@@ -12,7 +12,7 @@ SSH keys, access tokens, shell history, and Git identity are deliberately exclud
 ## New Mac setup
 
 ```bash
-git clone git@github.com:wrong-mistake/dotFile.git ~/dotFile
+git clone https://github.com/wrong-mistake/dotFile.git ~/dotFile
 cd ~/dotFile
 ./bootstrap-macos.sh
 ```
