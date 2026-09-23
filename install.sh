@@ -30,6 +30,18 @@ link_file "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 link_file "$DOTFILES_DIR/tmux/tmuxline.conf" "$HOME/.tmuxline.conf"
 append_once "$HOME/.zshrc" "source \"$DOTFILES_DIR/zsh/zshrc\""
 
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+fi
+if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git \
+    "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+fi
+if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+fi
+
 if [[ "$(uname)" == "Darwin" ]]; then
   defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES_DIR/iterm2"
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
